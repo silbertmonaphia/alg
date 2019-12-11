@@ -1,4 +1,4 @@
-from data_struture import Node
+from data_structure import Node
 
 class SolutionIterative:
     def swapPairs(self, head: Node) -> Node:

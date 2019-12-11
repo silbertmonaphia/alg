@@ -1,4 +1,4 @@
-from data_struture import minHeap
+from data_structure import minHeap
 
 class KthLargest:
     def __init__(self, k, arr):

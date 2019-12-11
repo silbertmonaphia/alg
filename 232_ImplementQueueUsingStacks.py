@@ -1,4 +1,4 @@
-from data_struture import Stack
+from data_structure import Stack
 
 class MyQueue:
 
