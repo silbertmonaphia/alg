@@ -1,4 +1,4 @@
-# BruteForce
+# LeetCode 51 & 52
 class Solution:
     def solveNqueens(self, n):
         if n < 1:
@@ -9,7 +9,7 @@ class Solution:
         self.negative_slope = set()
         self.DFS(n, 0, [])
 
-        return self.result
+        return self._generate_result(n)
 
     def DFS(self, n, row, cur_state):
         if row >= n:
@@ -31,6 +31,13 @@ class Solution:
             self.positive_slope.remove(row + col)
             self.negative_slope.remove(row - col)
 
+    def _generate_result(self, n):
+        board = []
+        for res in self.result:
+            for i in res:
+                board.append('.'*i + 'Q'+'.'*(n - i - 1))
+        return [board[i:i+n] for i in range(0, len(board), n)]
 
-print(Solution().solveNqueens(4))
-assert(Solution().solveNqueens(4) == [[1, 3, 0, 2], [2, 0, 3, 1]])
+from pprint import pprint
+pprint(Solution().solveNqueens(4))
+assert(Solution().solveNqueens(4) == [['.Q..', '...Q', 'Q...', '..Q.'], ['..Q.', 'Q...', '...Q', '.Q..']])
